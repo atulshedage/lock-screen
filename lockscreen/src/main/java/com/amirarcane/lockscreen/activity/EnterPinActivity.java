@@ -286,7 +286,7 @@ public class EnterPinActivity extends AppCompatActivity {
 
     private void writePinToSharedPreferences(String pin) {
         SharedPreferences prefs = this.getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE);
-        prefs.edit().putString(KEY_PIN, Utils.sha256(pin)).apply();
+        prefs.edit().putString(KEY_PIN, Utils.digit(pin)).apply();
     }
 
     private String getPinFromSharedPreferences() {
@@ -314,7 +314,7 @@ public class EnterPinActivity extends AppCompatActivity {
     }
 
     private void checkPin(String pin) {
-        if (Utils.sha256(pin).equals(getPinFromSharedPreferences())) {
+        if (Utils.digit(pin).equals(getPinFromSharedPreferences())) {
             setResult(RESULT_OK);
             finish();
         } else {
