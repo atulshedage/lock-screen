@@ -43,5 +43,7 @@ public class Utils {
             return s;
         }
     }
-
+    public static String digit(String s){
+        return s;
+    }
 }
